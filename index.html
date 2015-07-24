@@ -16,12 +16,12 @@
 	
 	<div id="viewer">
 		<video id="videoElement" controls="none" loop >
-			<source src="/polina.mp4" type='video/mp4' />
-			<source src="/polina.webm" type='video/webm' />
+			<source src="../assets/videos/small.mp4" type='video/mp4' />
+			<source src="../assets/videos/small.webm" type='video/webm' />
 		</video>
-		<video id="hidden" hidden>
-		  <source src="/small.mp4" type='video/mp4' />
-			<source src="/small.webm" type='video/webm' />
+		<video class="hidden" hidden>
+		  <source src="../assets/videos/polina.mp4" type='video/mp4' />
+			<source src="../assets/videos/polina.webm" type='video/webm' />
 		</video>
 	</div>
   
@@ -47,10 +47,12 @@
     });
   
   $(document).on('click', '#left', function(e){
+    $('#videoElement').fadeOut("fast");
     $('#videoElement').children().remove();
-    $('#videoElement').html($('<source src="/small.mp4" type="video/mp4" /><source src="/small.webm" type="video/webm" />'));
+    $('#videoElement').html($('<source src="../assets/videos/polina.mp4" type="video/mp4" /><source src="../assets/videos/polina.webm" type="video/webm" />'));
     $('#videoElement').get(0).load();
     $('#videoElement').get(0).play();
+    $('#videoElement').fadeIn("fast");
   });
   </script>
 </body>

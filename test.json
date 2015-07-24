@@ -4,11 +4,11 @@
         "type":"VIDEO",
         "sources": {
           "webm":{
-            "source":"polina.webm",
+            "source":"../assets/videos/polina.webm",
             "size":3665920
           },
           "h264":{
-            "source":"polina.mp4",
+            "source":"../assets/videos/polina.mp4",
             "size":7180288
           }
         }
@@ -17,11 +17,11 @@
         "type":"VIDEO",
         "sources": {
           "webm":{
-            "source":"small.webm",
+            "source":"../assets/videos/small.webm",
             "size":233472
           },
           "h264":{
-            "source":"small.mp4",
+            "source":"../assets/videos/small.mp4",
             "size":385024
           }
         }
