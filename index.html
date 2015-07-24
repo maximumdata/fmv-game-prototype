@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.html5loader/1.8.0/jquery.html5Loader.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.html5loader/1.8.0/animations/jquery.html5Loader.circular.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  
+	<div id="html5Loader"></div>
+	
+	<div id="viewer">
+		<video id="videoElement" controls="none" loop >
+			<source src="/polina.mp4" type='video/mp4' />
+			<source src="/polina.webm" type='video/webm' />
+		</video>
+		<video id="hidden" hidden>
+		  <source src="/small.mp4" type='video/mp4' />
+			<source src="/small.webm" type='video/webm' />
+		</video>
+	</div>
+  
+  <div id="navLayer">
+    <div id="up">Go up!</div>
+    <div id="left">Go left!</div>
+  </div>
+  
+  <script>
+    //init
+    var loaderAnimation = $("#html5Loader").LoaderAnimation({
+    	onComplete:function(){
+    		console.log("preloader animation completed!");
+    		$('#videoElement').get(0).play();
+    	}
+    });
+    $.html5Loader({
+    		filesToLoad:'test.json',
+    		onComplete: function () {
+    			console.log("All the assets are loaded!");
+    		},
+    		onUpdate: loaderAnimation.update
+    });
+  
+  $(document).on('click', '#left', function(e){
+    $('#videoElement').children().remove();
+    $('#videoElement').html($('<source src="/small.mp4" type="video/mp4" /><source src="/small.webm" type="video/webm" />'));
+    $('#videoElement').get(0).load();
+    $('#videoElement').get(0).play();
+  });
+  </script>
+</body>
+</html>
